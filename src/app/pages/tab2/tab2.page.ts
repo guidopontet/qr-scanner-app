@@ -18,7 +18,6 @@ export class Tab2Page {
   }
 
   openRegister(register: Register) {
-    console.log(register);
+    this.registerService.openRegister(register);
   }
-
 }
