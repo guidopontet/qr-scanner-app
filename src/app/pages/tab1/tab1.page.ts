@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
+import { RegisterService } from 'src/app/services/register.service';
 
 @Component({
   selector: 'app-tab1',
@@ -9,20 +10,24 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 export class Tab1Page {
 
   constructor(
-    private barcodeScanner: BarcodeScanner
+    private barcodeScanner: BarcodeScanner,
+    private registerService: RegisterService
   ) {}
 
   ionViewWillEnter() {
-    console.log('??')
+    this.scan();
   }
 
   scan() {
     this.barcodeScanner.scan()
       .then(barcodeData => {
-        console.log(barcodeData);
+        if (!barcodeData.cancelled) {
+          this.registerService.saveRegister(barcodeData.format, barcodeData.text);
+        }
       })
       .catch(err => {
-        console.log(err);
+        console.error(err);
+        this.registerService.saveRegister('QRCode', 'https://crassoft.com');
       });
   }
 

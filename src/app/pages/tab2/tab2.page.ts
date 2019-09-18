@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { RegisterService } from 'src/app/services/register.service';
+import { Register } from 'src/app/models/register.model';
 
 @Component({
   selector: 'app-tab2',
@@ -7,6 +9,16 @@ import { Component } from '@angular/core';
 })
 export class Tab2Page {
 
-  constructor() {}
+  constructor(
+    public registerService: RegisterService
+  ) {}
+
+  sendEmail() {
+    console.log('Send email');
+  }
+
+  openRegister(register: Register) {
+    console.log(register);
+  }
 
 }

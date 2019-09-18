@@ -1,9 +1,31 @@
-<ion-header>
+<ion-header no-border>
   <ion-toolbar>
     <ion-title>
       Historial
     </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="sendEmail()"
+                  color="primary">
+        <ion-icon slot="icon-only" name="send"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+  <ion-list>
+    <ion-item detail
+              *ngFor="let register of registerService.registers"
+              (click)="openRegister(register)">
+      <ion-icon slot="start"
+                [name]="register.icon"
+                color="primary"></ion-icon>
+      <ion-label>
+        <h2>{{ register.text }}</h2>
+        <p>{{ register.created | date: 'medium'}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
