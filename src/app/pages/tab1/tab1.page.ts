@@ -27,7 +27,8 @@ export class Tab1Page {
       })
       .catch(err => {
         console.error(err);
-        this.registerService.saveRegister('QRCode', 'https://crassoft.com');
+        // this.registerService.saveRegister('QRCode', 'https://crassoft.com');
+        this.registerService.saveRegister('QRCode', 'geo:40.73151796986687,-74.06087294062502');
       });
   }
 

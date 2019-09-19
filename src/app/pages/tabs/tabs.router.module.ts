@@ -24,6 +24,11 @@ const routes: Routes = [
             path: '',
             loadChildren: () =>
               import('../../pages/tab2/tab2.module').then(m => m.Tab2PageModule)
+          },
+          {
+            path: 'map/:geo',
+            loadChildren: () =>
+              import('../../pages/map/map.module').then(m => m.MapPageModule)
           }
         ]
       },

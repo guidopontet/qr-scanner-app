@@ -1,0 +1,13 @@
+#map {
+  width: 100% !important;
+  height: 100vh !important;
+  background-color: #f6f6f4 !important;
+}
+
+.button {
+  &--back {
+    position: fixed;
+    top: 40px;
+    right: 12px;
+  }
+}

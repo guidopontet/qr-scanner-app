@@ -39,7 +39,9 @@ export class RegisterService {
       case 'http':
         this.inAppBrowser.create(register.text, '_system'); // Open on default browser
         break;
-
+      case 'geo':
+        this.navController.navigateForward(`/tabs/tab2/map/${register.text}`);
+        break;
       default:
         break;
     }
