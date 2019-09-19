@@ -14,7 +14,7 @@ export class Tab2Page {
   ) {}
 
   sendEmail() {
-    console.log('Send email');
+    this.registerService.sendEmail();
   }
 
   openRegister(register: Register) {
